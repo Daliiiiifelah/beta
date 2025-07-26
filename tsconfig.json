@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                    
+    "module": "ESNext",                    
+    "moduleResolution": "Node",            
+    "jsx": "react-jsx",                    
+    "esModuleInterop": true,               
+    "allowSyntheticDefaultImports": true,  
+    "skipLibCheck": true,                  
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+
+    // bring in Vite’s import.meta.env types + Convex global types
+    "types": ["vite/client", "convex"]
+  },
+
+  // make sure TS scans your code and our stub
+  "include": ["src", "convex"]
+}
