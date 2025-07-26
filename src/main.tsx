@@ -9,12 +9,14 @@ import { useMemo } from "react";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 
+import { useQuery } from "convex/react";
+
 function useAuth() {
-  const anIsAuthenticated = isAuthenticated();
+  const anIsAuthenticated = useQuery(isAuthenticated);
   return useMemo(
     () => ({
-      isLoading: false,
-      isAuthenticated: anIsAuthenticated,
+      isLoading: anIsAuthenticated === undefined,
+      isAuthenticated: anIsAuthenticated === true,
       fetchAccessToken: async ({ forceRefreshToken }: { forceRefreshToken: boolean }) => {
         if (!anIsAuthenticated) {
           return null;
