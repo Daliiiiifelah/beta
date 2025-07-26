@@ -11,10 +11,13 @@ export const getPlayersToRate = query({
   handler: async (ctx, args) => {
     const raterUserId = await getAuthUserId(ctx);
     if (!raterUserId) return [];
-
     const match = await ctx.db.get(args.matchId);
-    const playerIds: Id<"users">[] = match?.joinedPlayerIds ?? []; // ✅ use your actual match field here
-
+    if (!match) return [];
+    const participants = await ctx.db
+      .query("participants")
+      .withIndex("by_matchId", (q) => q.eq("matchId", args.matchId))
+      .collect();
+    const playerIds = participants.map((p) => p.userId);
     const ratings = await ctx.db
       .query("playerRatings")
       .withIndex("by_match_and_rater", (q) =>
