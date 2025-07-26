@@ -35,6 +35,9 @@ window.addEventListener('message', async (message) => {
       : null,
     // End of code for taking screenshots on chef.convex.dev.
   ].filter(Boolean),
+  define: {
+    "process.env": {},
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
