@@ -907,7 +907,7 @@ export default function App() {
   const [partySearchTerm, setPartySearchTerm] = useState("");
   const [showLeaderboardModal, setShowLeaderboardModal] = useState(false); // State for Leaderboard Modal
   
-  const loggedInUser = useQuery(api.auth.loggedInUser);
+  const loggedInUser = useQuery(api.auth.currentUser);
   const partySearchResults = useQuery(api.matches.searchParties, partySearchTerm.trim() ? { searchTerm: partySearchTerm.trim() } : "skip"); 
   const currentUserProfileDetails = useQuery(api.userProfiles.getCurrentUserProfile, loggedInUser ? {} : "skip");
   const unreadNotificationCount = useQuery(api.notifications.getUnreadNotificationCount, loggedInUser ? {} : "skip"); 

@@ -89,6 +89,7 @@ export const createMatch = mutation({
       pitchType: args.pitchType,
       amenities: args.amenities,
       skillLevel: args.skillLevel ?? "open_to_all", // Default to "open_to_all" if not provided
+      joinedPlayerIds: [user._id],
     });
     return matchId;
   },

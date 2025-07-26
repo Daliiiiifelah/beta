@@ -10,8 +10,8 @@ export const { auth, signIn, signOut, isAuthenticated, store } = convexAuth({
   providers: [Password, Anonymous],
 });
 
-// 2) Add your own loggedInUser query in the same file
-export const loggedInUser = query({
+// 2) Add your own currentUser query in the same file
+export const currentUser = query({
   handler: async (ctx) => {
     const userId = await getAuthUserId(ctx);
     if (!userId) return null;
