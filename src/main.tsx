@@ -3,7 +3,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import ConvexProviderWithAuth from "@convex-dev/auth/react";
+import { ConvexProviderWithAuth } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
 import { auth } from "../convex/auth";
 
