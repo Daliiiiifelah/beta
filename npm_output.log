@@ -1,0 +1,7 @@
+
+> flex-template@0.0.0 dev
+> convex dev --once && node setup.mjs && npm-run-all --parallel dev:frontend dev:backend
+
+Tip: You can try out Convex without creating an account by clearing the CONVEX_DEPLOYMENT environment variable.
+Welcome to developing with Convex, let's get you logged in.
+✖ Cannot prompt for input in non-interactive terminals. (Device name:)
