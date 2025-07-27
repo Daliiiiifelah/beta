@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:convex": "node -r dotenv/config ./node_modules/.bin/convex dev --once && node setup.mjs",
-    "dev:frontend": "./node_modules/.bin/vite --open",
-    "dev:backend": "node -r dotenv/config ./node_modules/.bin/convex dev",
+    "start:convex": "npx convex dev --once && node setup.mjs",
+    "dev:frontend": "vite --open",
+    "dev:backend": "npx convex dev",
     "dev": "npm-run-all --parallel start:convex dev:frontend dev:backend",
-    "lint": "tsc -p convex -noEmit --pretty false && tsc -p . -noEmit --pretty false && convex dev --once && vite build"
+    "lint": "tsc -p convex -noEmit --pretty false && tsc -p . -noEmit --pretty false && npx convex dev --once && vite build"
   },
   "dependencies": {
     "@convex-dev/auth": "^0.0.87",

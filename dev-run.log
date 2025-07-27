@@ -3,47 +3,49 @@
 > npm-run-all --parallel start:convex dev:frontend dev:backend
 
 
-> flex-template@0.0.0 dev:backend
-> node -r dotenv/config ./node_modules/.bin/convex dev
-
-
 > flex-template@0.0.0 start:convex
-> node -r dotenv/config ./node_modules/.bin/convex dev --once && node setup.mjs
+> npx convex dev --once && node setup.mjs
 
 
 > flex-template@0.0.0 dev:frontend
-> ./node_modules/.bin/vite --open
+> vite --open
 
-/app/node_modules/.bin/convex:2
-basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
-          ^^^^^^^
 
-SyntaxError: missing ) after argument list
-    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
-    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+> flex-template@0.0.0 dev:backend
+> npx convex dev
+
+/app/node_modules/rollup/dist/native.js:64
+		throw new Error(
+		      ^
+
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/app/node_modules/rollup/dist/native.js:64:9)
+    at Object.<anonymous> (/app/node_modules/rollup/dist/native.js:73:76)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
     at Object..js (node:internal/modules/cjs/loader:1895:10)
     at Module.load (node:internal/modules/cjs/loader:1465:32)
     at Function._load (node:internal/modules/cjs/loader:1282:12)
     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
-    at node:internal/main/run_main_module:36:49
+    at cjsLoader (node:internal/modules/esm/translators:266:5)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:200:7) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /app/node_modules/rollup/dist/native.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+      at Function._load (node:internal/modules/cjs/loader:1211:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+      at Module.require (node:internal/modules/cjs/loader:1487:12)
+      at require (node:internal/modules/helpers:135:16)
+      at requireWithFriendlyError (/app/node_modules/rollup/dist/native.js:46:10)
+      at Object.<anonymous> (/app/node_modules/rollup/dist/native.js:73:76) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/app/node_modules/rollup/dist/native.js' ]
+  }
+}
 
 Node.js v22.17.1
-/app/node_modules/.bin/convex:2
-basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
-          ^^^^^^^
-
-SyntaxError: missing ) after argument list
-    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
-    at Module._compile (node:internal/modules/cjs/loader:1704:20)
-    at Object..js (node:internal/modules/cjs/loader:1895:10)
-    at Module.load (node:internal/modules/cjs/loader:1465:32)
-    at Function._load (node:internal/modules/cjs/loader:1282:12)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
-    at node:internal/main/run_main_module:36:49
-
-Node.js v22.17.1
-ERROR: "start:convex" exited with 1.
+ERROR: "dev:frontend" exited with 1.
